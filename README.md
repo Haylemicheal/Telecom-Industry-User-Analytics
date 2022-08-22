@@ -1,0 +1,2 @@
+# Telecom-Industry-User-Analytics
+The investor is interested in purchasing TellCo, an existing mobile service provider in the Republic of Pefkakia. The goal of this project is to provide a report to analyse opportunities for growth and make a recommendation on whether TellCo is worth buying or selling.  We will do this by analysing a telecommunication dataset that contains useful information about the customers &amp; their activities on the network. 
