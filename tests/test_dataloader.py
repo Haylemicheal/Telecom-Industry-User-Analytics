@@ -16,13 +16,5 @@ class TestDataLoader(unittest.TestCase):
         col1 = pd.columns[0]
         self.assertEqual(col1, "Bearer Id")
 
-    def test_read_excel(self):
-        """Test the read excel method"""
-        filename = "sample.xlsx"
-        dataloader = DataLoader(self.dir_name, filename)
-        pd = dataloader.read_excel()
-        col1 = pd.columns[0]
-        self.assertEqual(col1, "Bearer Id")
-
 if __name__ == '__main__':
     unittest.main()
