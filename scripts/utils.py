@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import logging
 import pandas as pd
-
+import numpy as np
 logging.basicConfig(format = '%(asctime)s:%(levelname)s:%(name)s:%(message)s')
 
 
@@ -34,6 +34,12 @@ class Utils:
                 " columns that have missing values.")
         return mis_val_table_ren_columns
 
+    def percent_missing(self, df):
+        totalCells = np.product(df.shape)
+        missingCount = df.isnull().sum()
+        totalMissing = missingCount.sum()
+        return round((totalMissing/totalCells), 2) * 100, missingCount
+
     def format_float(self, value):
         return f'{value:,.2f}'
 
@@ -63,3 +69,8 @@ class Utils:
         df[bytes_data] = df[bytes_data] / megabyte
 
         return df[bytes_data]
+
+    def save_data(self, df, filename):
+        """Save the dataframe to csv file
+        """
+        df.to_csv(filename, sep='\t')
