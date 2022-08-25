@@ -40,6 +40,12 @@ class Visualization:
         logging.info("Draw box plots")
         self.df.plot(kind= 'box', subplots=t, layout=l, sharex=f, sharey=f)
         pyplot.show()
+    def draw_bar(self, title, x, y):
+        self.df.plot(kind="bar", title="test")
+        pyplot.title(title)
+        pyplot.xlabel(x)
+        pyplot.ylabel(y)
+        pyplot.show()
 
     #Multivariant Plots
     def draw_correlation_matrix(self):
