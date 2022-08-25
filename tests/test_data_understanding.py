@@ -12,7 +12,7 @@ class TestDataLoader(unittest.TestCase):
         self.du = DataUnderstanding(self.df)
 
     def test_peak_data(self):
-        top5 = self.du.peak_data(5)
+        top5 = self.du.pick_data(5)
         self.assertEqual(top5.shape, (5,55))
 
     def test_data_dimension(self):
