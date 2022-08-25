@@ -73,4 +73,4 @@ class Utils:
     def save_data(self, df, filename):
         """Save the dataframe to csv file
         """
-        df.to_csv(filename, sep='\t')
+        df.to_csv(filename, index=False)
