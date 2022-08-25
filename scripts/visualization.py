@@ -6,6 +6,7 @@ logging.basicConfig(format = '%(asctime)s:%(levelname)s:%(name)s:%(message)s')
 from matplotlib import pyplot
 import pandas as pd
 import numpy
+import seaborn as sns
 
 class Visualization:
     """Class for data understanding through visualization"""
@@ -16,7 +17,8 @@ class Visualization:
     def draw_hist(self):
         """Draw histograms"""
         logging.info("Draw Histogram")
-        self.df.hist()
+        sns.set(style="darkgrid")
+        sns.histplot(data=self.df)
         pyplot.show()
 
     def draw_density_plot(self, l):
@@ -30,7 +32,7 @@ class Visualization:
         self.df.plot(kind= 'density', subplots=t, layout=l, sharex=f)
         pyplot.show()
 
-    def draw_box_plots(self, l):
+    def draw_box_plots(self):
         """Draw Box Plots
             Attributes:
                 l: Layout
@@ -38,10 +40,13 @@ class Visualization:
         t = True
         f = False
         logging.info("Draw box plots")
-        self.df.plot(kind= 'box', subplots=t, layout=l, sharex=f, sharey=f)
+        pyplot.figure(figsize=(12, 7))
+        sns.boxplot(data=self.df)
         pyplot.show()
+
     def draw_bar(self, title, x, y):
-        self.df.plot(kind="bar", title="test")
+        pyplot.figure(figsize=(12, 7))
+        self.df.plot(kind="bar")
         pyplot.title(title)
         pyplot.xlabel(x)
         pyplot.ylabel(y)
@@ -51,6 +56,7 @@ class Visualization:
     def draw_correlation_matrix(self):
         """Draw Correlation matrixgraph"""
         logging.info("Draw correlation matrix")
+        pyplot.figure(figsize=(12, 7))
         corr = self.df.corr()
         fig = pyplot.figure()
         ax = fig.add_subplot(111)
@@ -61,5 +67,6 @@ class Visualization:
     def draw_scatter(self):
         """Scatter graph"""
         logging.info("Draw Scatter")
-        pd.plotting.scatter_matrix(self.df)
+        pyplot.figure(figsize=(12, 7))
+        sns.scatterplot(data=self.df)
         pyplot.show()
