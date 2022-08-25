@@ -14,8 +14,8 @@ class DataUnderstanding:
         logging.info("The data understanding object is created")
 
 
-    def peak_data(self, rows):
-        """Peak some rows from the data
+    def pick_data(self, rows):
+        """Pick some rows from the data
         Attributes:
             rows: The number of rows to be picked
         return:
